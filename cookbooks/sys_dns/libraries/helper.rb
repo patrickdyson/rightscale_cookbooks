@@ -131,7 +131,7 @@ EOF
       def action_set(id, user, password, address, options = {})
         # Generating A Record update query and sending the update request
         query="username=#{CGI::escape(user)}&password=#{CGI::escape(password)}&id=#{id}&ip=#{CGI::escape(address)}"
-        result = `curl -S -s -o - -f -g 'https://cp.dnsmadeeasy.com/servlet/updateip?#{query}'`
+        result = `curl -S -s -o - -f -g 'http://cp.dnsmadeeasy.com/servlet/updateip?#{query}'`
 
         # Checking the result
         if result =~ /success/ || result =~ /error-record-ip-same/
